@@ -5,7 +5,7 @@ $(document).ready(function() {
     // *** HANDLEBARS *** //
     var source = $("#square-template").html();
     var template = Handlebars.compile(source);
-    for (var i = 0; i < 36; i++) { 
+    for (var i = 0; i < 36; i++) {
         $('.grid-container').append(template);
     };
 
@@ -19,11 +19,9 @@ $(document).ready(function() {
                 var randomNumber = data.response;
                 console.log(randomNumber); //debug
                 if (randomNumber <= 5) {
-                    $(squareClicked).removeClass("green");
-                    $(squareClicked).addClass("yellow");
+                    $(squareClicked).addClass("yellow").removeClass("green");
                 } else {
-                    $(squareClicked).removeClass("yellow");
-                    $(squareClicked).addClass("green");
+                    $(squareClicked).addClass("green").removeClass("yellow");
                 }
                 $(squareClicked).children("p").text(randomNumber);
             },
