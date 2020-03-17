@@ -1,7 +1,6 @@
 $(document).ready(function() {
     // *** LOGIC ENGINE *** //
 
-
     // *** HANDLEBARS *** //
     var source = $("#square-template").html();
     var template = Handlebars.compile(source);
