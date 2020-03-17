@@ -10,8 +10,10 @@ $(document).ready(function() {
                 var randomNumber = data.response;
                 console.log(randomNumber); //debug
                 if (randomNumber <= 5) {
+                    $(squareClicked).removeClass("green");
                     $(squareClicked).addClass("yellow");
                 } else {
+                    $(squareClicked).removeClass("yellow");
                     $(squareClicked).addClass("green");
                 }
                 $(squareClicked).children("p").text(randomNumber);
