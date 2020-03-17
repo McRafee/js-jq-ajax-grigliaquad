@@ -1,6 +1,15 @@
 $(document).ready(function() {
     // *** LOGIC ENGINE *** //
 
+
+    // *** HANDLEBARS *** //
+    var source = $("#square-template").html();
+    var template = Handlebars.compile(source);
+    for (var i = 0; i < 36; i++) { 
+        $('.grid-container').append(template);
+    };
+
+
     $(".square").click(function() {
         var squareClicked = $(this);
         $.ajax({
