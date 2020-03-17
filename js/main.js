@@ -16,13 +16,8 @@ $(document).ready(function() {
             method: 'GET',
             success: function(data) {
                 var randomNumber = data.response;
-                console.log(randomNumber); //debug
-                if (randomNumber <= 5) {
-                    $(squareClicked).addClass("yellow").removeClass("green");
-                } else {
-                    $(squareClicked).addClass("green").removeClass("yellow");
-                }
-                $(squareClicked).children("p").text(randomNumber);
+                colorSquare(randomNumber, squareClicked);
+                centeredNum(randomNumber, squareClicked);
             },
             error: function() {
                 alert('ERROR');
@@ -31,6 +26,18 @@ $(document).ready(function() {
     });
 
     // *** FUNCTIONS *** //
+
+    function colorSquare(value, where) {
+        if (value <= 5) {
+            $(where).addClass("yellow").removeClass("green");
+        } else {
+            $(where).addClass("green").removeClass("yellow");
+        }
+    }
+
+    function centeredNum(value, where) {
+        $(where).children("p").text(value);
+    }
 
     // NOT ASYNC FUNCTION
     // function remoteRandom(){
@@ -41,6 +48,7 @@ $(document).ready(function() {
     //         method: 'GET',
     //         success: function (data) {
     //             randomNumber = data.response;
+    //             console.log(randomNumber); //debug
     //         },
     //         error: function () {
     //             alert('ERROR');
@@ -48,13 +56,4 @@ $(document).ready(function() {
     //     });
     //     return randomNumber;
     // };
-
-
-
-
-
-
-
-
-
 });
